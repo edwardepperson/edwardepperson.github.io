@@ -1,5 +1,6 @@
 ---
 layout: default
+permalink: databases-revisited
 ---
 
 The artifact that I decided to revisit for the database portion of the final project is a course provided database for the database MongoDB. It is a simple database that contains research records for a series of various companies. The inclusion of this artifact is intended to signal to potential employers and peers that I am capable of working with and improving a database that someone else created. A major portion of software development is maintaining some legacy code and preparing for future changes or modifications. It also showcases my abilities within a popular database system for web development applications.

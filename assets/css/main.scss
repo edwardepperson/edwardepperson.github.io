@@ -1,0 +1,70 @@
+---
+---
+
+@import "normalize";
+@import "skeleton";
+
+$head-color: #402E3B;
+$sub-color: #A2A0A1;
+$link-color: #DA6670;
+
+// Some custom CSS
+
+.site-header {
+    &__title {
+        font: {
+            family: "Montserrat", "HelveticaNeue", Helvetica, Arial, sans-serif;
+            size: 2.8rem;
+            weight: 600;
+        }
+        padding: 18px 0 18px 0;
+
+        a {
+            color: $head-color;
+            text-decoration: none;
+        }
+    }
+}
+
+.post {
+    margin: {
+        top: 21px;
+    }
+
+    &__title {
+        font: {
+            family: "Montserrat", "HelveticaNeue", Helvetica, Arial, sans-serif;
+            size: 3.2rem;
+            weight: 800;
+        }
+
+        letter-spacing: 1px;
+
+        a { 
+            color: $head-color;
+            text-decoration: none;
+
+            &:after {
+                content: "";
+                border-bottom: 3px $link-color solid;
+                width: 100%;
+            }
+        }
+    }
+
+    &__date {
+        color: $sub-color;
+
+        font: {
+            size: 1.3rem;
+            weight: 300;
+        }
+    }
+
+    &-content {
+        margin: {
+            top: 21px;
+            bottom: 21px;
+        }
+    }
+}

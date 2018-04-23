@@ -1,3 +1,18 @@
-theme: jekyll-theme-minimal
-title: Welcome to the Tyler's homepage!
-description: Feel free to bookmark this to keep an eye on my project updates
+# Some Dependencies
+markdown: kramdown
+
+# Permalinks
+permalinks: pretty
+
+# Setup
+title: Tyler Epperson
+url: https://edwardepperson.github.io
+
+author: 
+  name: 'Tyler Epperson'
+
+sass:
+  style: compact
+
+# Custom
+repository: github.com/edwardepperson/edwardepperson.github.io

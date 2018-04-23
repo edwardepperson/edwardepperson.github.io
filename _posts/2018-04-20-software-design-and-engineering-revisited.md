@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Software Engineering Revisited
+permalink: software-engineering-revisited
 ---
 
 For the software design and engineering artifact I decided, after some deliberation, to refine an artifact from my software design course, which I took at the end of 2016. It is a user flow diagram that details some of the functions called during a typical user workflow for a security application. It follows the workflow interactions between a typical user and an administrator. Given that the design phase of any project in computer science is one of the most important, it is necessary that I can show a thorough understanding of fundamental design principles. Additionally, employers will want to see a breath of work that shows growth and a deep understanding of the field. 

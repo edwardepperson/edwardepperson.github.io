@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Algorithm Re-Analysis
+permalink: algorithm-analysis
 ---
 
 One of the most important portions of the final project is a reexamination of one of the algorithm or data structure centric artifacts from your academic works. It is of utmost importance that any computer scientist has a strong understanding of algorithms, they’re utilities, and the data structures that allow these algorithms to function incredibly efficiently. For this portion I chose one of the most fundamental data structures found in the field, the linked list. Initially, I created the linked list data structure for my Data Structures and Algorithms course last year for 17EW5. It was created in C++, but with this revision I wanted to show off my understanding of the data structure and my flexibility with multiple languages by revising it in Python 3.6.
