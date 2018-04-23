@@ -1,0 +1,297 @@
+---
+layout: post
+title: Algorithm Re-Analysis
+permalink: algorithm-analysis
+tags: [Algorithms, Analysis, Re-Design, Software]
+---
+
+<p>
+    One of the most important portions of the final project is a 
+    reexamination of one of the algorithm or data structure centric 
+    artifacts from your academic works. It is of utmost importance 
+    that any computer scientist has a strong understanding of 
+    algorithms, they’re utilities, and the data structures that allow 
+    these algorithms to function incredibly efficiently. For this 
+    portion I chose one of the most fundamental data structures found 
+    in the field, the linked list. Initially, I created the linked list 
+    data structure for my Data Structures and Algorithms course last 
+    year for 17EW5. It was created in C++, but with this revision I 
+    wanted to show off my understanding of the data structure and my 
+    flexibility with multiple languages by revising it in Python 3.6.
+</p>
+
+<p>
+    The original file consisted of a simple structure:
+    </br>
+    <code>
+        // define a structure to hold bid information
+        struct Bid {
+            string bidId; // unique identifier
+            string title;
+            string fund;
+        
+            double amount;
+        
+            int index;
+        
+            Bid *next, *prev;
+        
+            Bid() {
+                amount = 0.0;
+            }
+        };
+        
+        //============================================================================
+        // Linked-List class definition
+        //============================================================================
+        
+        /**
+            * Define a class containing data members and methods to
+            * implement a linked-list.
+            */
+        class LinkedList {
+        
+        private:
+            // FIXME (1): Internal structure for list entries, housekeeping variables
+            Bid *head, *tail;
+        
+            int size;
+        
+        public:
+            LinkedList();
+        
+            virtual ~LinkedList();
+        
+            void Append(Bid bid);
+            void Prepend(Bid bid);
+            void PrintList();
+            void Remove(string bidId);
+        
+            Bid Search(string bidId);
+        
+            int Size();
+        };
+        
+        /**
+            * Default constructor
+            */
+        LinkedList::LinkedList() {
+            // FIXME (2): Initialize housekeeping variables
+            head = tail = NULL;
+        
+            size = 0;
+        }
+        
+        /**
+            * Destructor
+            */
+        LinkedList::~LinkedList() {
+            Bid *p;
+        
+            while(head != NULL) {
+            p = head;
+            head = head->next;
+            delete p;
+            }
+        
+            tail = head;
+            size = 0;
+        }
+        
+        /**
+            * Append a new bid to the end of the list
+            */
+        void LinkedList::Append(Bid bid) {
+            // FIXME (3): Implement append logic
+            Bid *p = new Bid();
+            Bid *tmp = head;
+        
+            p->bidId = bid.bidId;
+            p->title = bid.title;
+            p->fund = bid.fund;
+            p->amount = bid.amount;
+        
+            // cout << p->bidId << ": " << p->title << " | " << p->fund << " | " << p->amount << endl;
+        
+            p->next = NULL;
+            p->prev = tail;
+        
+            if(tmp != NULL) {
+                while(tmp->next != NULL)
+                tmp = tmp->next;
+        
+                tmp->next = tail = p;
+            }
+            else
+                head = p;
+        
+            size++; // either way, the size will increase
+        }
+        
+        /**
+            * Prepend a new bid to the start of the list
+            */
+        void LinkedList::Prepend(Bid bid) {
+            // FIXME (4): Implement prepend logic
+            Bid *p;
+            Bid *tmp = head;
+        
+            p->bidId = bid.bidId;
+            p->title = bid.title;
+            p->fund = bid.fund;
+            p->amount = bid.amount;
+        
+            head = p;
+            head->next = tmp;
+            tmp->prev = head;
+        }
+        
+        /**
+            * Simple output of all bids in the list
+            */
+        void LinkedList::PrintList() {
+            // FIXME (5): Implement print logic
+            Bid *tmp = head;
+        
+            while(tmp->next != NULL) {
+                cout << tmp->title << " | " << tmp->fund << " | " << tmp->amount << endl;
+                tmp = tmp->next;
+            }
+        }
+        
+        /**
+            * Remove a specified bid
+            *
+            * @param bidId The bid id to remove from the list
+            */
+        void LinkedList::Remove(string bidId) {
+            // FIXME (6): Implement remove logic
+            Bid *tmp = head;
+        
+            if(tmp == NULL)
+                return; // Empty list
+        
+            while(true) {
+                if(tmp->bidId.compare(bidId) == 0) {
+                Bid *tmpNext;
+        
+                tmpNext = tmp->next;
+        
+                if(tmp->prev != NULL)
+                    tmp->prev->next = tmpNext;
+        
+                // delete and done
+                free(tmp);
+                delete(tmp);
+                cout << "Removed: " << tmp->title << " | " << tmp->fund << " | " << tmp->amount << endl;
+        
+                break;
+                }
+                tmp = tmp->next;
+            }
+        }
+        
+        /**
+            * Search for the specified bidId
+            *
+            * @param bidId The bid id to search for
+            */
+        Bid LinkedList::Search(string bidId) {
+            // FIXME (7): Implement search logic
+            Bid *tmp = head;
+        
+            while(tmp != NULL) {
+                if(tmp->bidId.compare(bidId) == 0) {
+                return *tmp;
+                }
+                tmp = tmp->next;
+            }
+        }
+        
+        /**
+            * Returns the current size (number of elements) in the list
+            */
+        int LinkedList::Size() {
+            return size;
+        }
+    </code>
+    </br>
+    but, let's be honest, comparatively that's a huge mouthful for such a simple 
+    process. When I re-wrote this code in Python it turned out to be much easier
+    to comprehend.
+    </br>
+    <code>
+        class Bid(object):
+
+        def __init__(self, id=None, data={}, next=None, prev=None):
+            self.id = id
+            self.data = data
+            self.next = next
+            self.prev = prev
+    
+        def set_data(self, data):
+            self.data = data
+    
+        def __repr__(self):
+            return str(self.data)
+    
+        def set_next(self, next):
+            self.next = next
+    
+        def set_prev(self, prev):
+            self.prev = prev
+    
+    class LinkedList(object):
+    
+        def __init__(self):
+            self.head = None
+            self.size = 0
+    
+        def add(self, data):
+            node = Bid(self.size, data)
+            node.set_next(self.head)
+            self.head = node
+            self.size += 1
+    
+        def _search(self, data, remove=False):
+            current = self.head
+            previous = None
+    
+            while current:
+                if current.data == data:
+                    break
+                else:
+                    previous = current
+                    current = current.next
+            
+            if remove and current:
+                if previous is None:
+                    self.head = current.next
+                else:
+                    previous.set_next(current.next)
+                self.size -= 1
+            
+            return current is not None
+    
+        def remove(self, data):
+            return self._search(data, True)
+    
+        def search(self, data):
+            return self._search(data)
+    
+        def size(self):
+            return self.size
+    
+        def nodes(self):
+            current = self.head
+            nodes = []
+    
+            while current:
+                nodes.add(current)
+                current = current.next
+    
+            return nodes
+    </code>
+</p>
+
+It’s difficult enough to revisit legacy code, especially you own, as it takes some time to return to the mindset that you were in during the initial coding process. In this case, I had to rethink the small application and translate that into a language that already has the data type built into its core. However, for the Python revision I found it to be much simpler to rewrite the original C++ code. Python has a number of conventions and existing libraries that shortens the code in comparison to the original both in lines and complexity. Overall, the original C++ classes that made up the linked list totaled roughly 201 lines of code. The Python classes totaled 70 in their entirety.

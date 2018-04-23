@@ -1,0 +1,116 @@
+---
+layout: post
+title: Databases Revisited
+permalink: databases-revisited
+tags: [Database, MongoDB]
+---
+
+<p>
+	The artifact that I decided to revisit for the database portion of 
+	the final project is a course provided database for the database 
+	MongoDB. It is a simple database that contains research records for 
+	a series of various companies. The inclusion of this artifact is 
+	intended to signal to potential employers and peers that I am 
+	capable of working with and improving a database that someone else 
+	created. A major portion of software development is maintaining some 
+	legacy code and preparing for future changes or modifications. 
+	It also showcases my abilities within a popular database system for 
+	web development applications.
+	</br>
+	I analyzed the original schema and picked apart much of the data 
+	types present in the research documents. Using the following code,
+	</br> 
+	<code>var col_list = db.research.findOne();</code>
+	</br>
+	I was able to obtain a basic 
+	list of columns from the table consisting of:
+</p>
+<table>
+	<tr>
+		<td>_id</td>
+		<td>providerships</td>
+	</tr>
+	<tr>
+		<td>name</td>
+		<td>total_money_raised</td>
+	</tr>
+	<tr>
+		<td>permalink</td>
+		<td>funding_rounds</td>
+	</tr>
+	<tr>
+		<td>crunchbase_url</td>
+		<td>investments</td>
+	</tr>
+	<tr>
+		<td>homepage_url</td>
+		<td>acquisition</td>
+	</tr>
+	<tr>
+		<td>blog_url</td>
+		<td>acquisitions</td>
+	</tr>
+	<tr>
+		<td>blog_feed_url</td>
+		<td>offices</td>
+	</tr>
+	<tr>
+		<td>twitter_username</td>
+		<td>milestones</td>
+	</tr>
+	<tr>
+		<td>category_code</td>
+		<td>video_embeds</td>
+	</tr>
+	<tr>
+		<td>number_of_employees</td>
+		<td>screenshots</td>
+	</tr>
+	<tr>
+		<td>founded_year</td>
+		<td>external_links</td>
+	</tr>
+	<tr>
+		<td>deadpooled_year</td>
+		<td>partners</td>
+	</tr>
+	<tr>
+		<td>tag_list</td>
+		<td>alias_list</td>
+	</tr>
+	<tr>
+		<td>email_address</td>
+		<td>phone_number</td>
+	</tr>
+	<tr>
+		<td>description</td>
+		<td>created_at</td>
+	</tr>
+	<tr>
+		<td>updated_at</td>
+		<td>overview</td>
+	</tr>
+	<tr>
+		<td>image</td>
+		<td>products</td>
+	</tr>
+	<tr>
+		<td>relationships</td>
+		<td>competitions</td>
+	</tr>
+</table>		
+<p>
+	With this information in hand I normalized the data and reduced the 
+	number of fields. Instead of fields with the postfix _url I decide 
+	to normalize those fields into a single identifier links_id which 
+	links to a separate table containing links that relate to the research document. 
+</p>
+<p>
+	When normalizing the companies database, I found myself constantly 
+	questioning what would be a proper restructuring of a document that 
+	lacks a schema. MongoDB brings extreme flexibility with it, so much 
+	so that it is, simultaneously, daunting and liberating to quickly 
+	alter a table’s structure. It speaks to the power that a NoSQL 
+	database brings to the table when considering what to use for 
+	development purposes. 
+</p>	

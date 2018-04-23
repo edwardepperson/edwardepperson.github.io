@@ -4,8 +4,8 @@
 @import "normalize";
 @import "skeleton";
 
-$head-color: #402E3B;
-$sub-color: #A2A0A1;
+$head-color: #101011;
+$sub-color: #5D5C5C;
 $link-color: #b4e7f8;
 
 // Some custom CSS
@@ -14,7 +14,6 @@ $link-color: #b4e7f8;
     &__title {
         font: {
             family: "Montserrat", "HelveticaNeue", Helvetica, Arial, sans-serif;
-            size: 2.8rem;
             weight: 600;
         }
         padding: 18px 0 18px 0;
@@ -28,13 +27,21 @@ $link-color: #b4e7f8;
 
 .post {
     margin: {
-        top: 21px;
+        top: 32px;
+    }
+
+    &__image {
+        margin: {
+            top: 32px;
+            bottom: 32px;
+        }
+
+        width: 100%;
     }
 
     &__title {
         font: {
             family: "Montserrat", "HelveticaNeue", Helvetica, Arial, sans-serif;
-            size: 3.2rem;
             weight: 800;
         }
 
@@ -68,7 +75,7 @@ $link-color: #b4e7f8;
         color: $sub-color;
 
         font: {
-            size: 1.3rem;
+            size: .8rem;
             weight: 300;
         }
     }
