@@ -1,0 +1,7 @@
+---
+layout: default
+title: Algorithm Re-Analysis
+---
+
+One of the most important portions of the final project is a reexamination of one of the algorithm or data structure centric artifacts from your academic works. It is of utmost importance that any computer scientist has a strong understanding of algorithms, they’re utilities, and the data structures that allow these algorithms to function incredibly efficiently. For this portion I chose one of the most fundamental data structures found in the field, the linked list. Initially, I created the linked list data structure for my Data Structures and Algorithms course last year for 17EW5. It was created in C++, but with this revision I wanted to show off my understanding of the data structure and my flexibility with multiple languages by revising it in Python 3.6.
+It’s difficult enough to revisit legacy code, especially you own, as it takes some time to return to the mindset that you were in during the initial coding process. In this case, I had to rethink the small application and translate that into a language that already has the data type built into its core. However, for the Python revision I found it to be much simpler to rewrite the original C++ code. Python has a number of conventions and existing libraries that shortens the code in comparison to the original both in lines and complexity. Overall, the original C++ classes that made up the linked list totaled roughly 201 lines of code. The Python classes totaled 70 in their entirety.

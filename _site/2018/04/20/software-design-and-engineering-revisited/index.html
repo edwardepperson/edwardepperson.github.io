@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Tyler | Software Engineering Revisited</title>
+    <meta name="description" content="The e-portfolio for Edward Tyler Epperson for">
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <link rel="canonical" href="http://localhost:4000/2018/04/20/software-design-and-engineering-revisited/">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="site-header">
+    <nav class="navbar--fixed-top">
+        <div class="navbar__logo--left">
+            <span class="logo">Tyler</span>
+        </div>
+        <div class="navbar__link-list--right">
+            <ul class="link-list">
+                
+                
+                
+                    
+                    
+                    
+                    <li class="link-list__link"><a href="/">Welcome to GitHub Pages</a></li>
+                    
+                
+                
+                
+                    
+                    
+                
+                
+                
+                    
+                    
+                    
+                    <li class="link-list__link"><a href="/blog/">Blog</a></li>
+                    
+                
+                
+            </ul>
+        </div>
+    </nav>
+</header>
+
+        <small>20 April 2018</small>
+<h1>Software Engineering Revisited</h1>
+
+<p class="view">by </p>
+
+<p>For the software design and engineering artifact I decided, after some deliberation, to refine an artifact from my software design course, which I took at the end of 2016. It is a user flow diagram that details some of the functions called during a typical user workflow for a security application. It follows the workflow interactions between a typical user and an administrator. Given that the design phase of any project in computer science is one of the most important, it is necessary that I can show a thorough understanding of fundamental design principles. Additionally, employers will want to see a breath of work that shows growth and a deep understanding of the field. 
+While combing over the details in this diagram and revisiting the user flow I found some inconsistencies that I wouldn’t have during the first iteration. For instance, I have a logging feature on display that was intended to track each user as they made their way through the application. This feature was intended to be used for making determinations about possible bottlenecks in the application and helping the workflow. There is, however, one glaring issue with the design. The log activity function isn’t calling, and or triggered, until after an initial step is taken by either the administrator or a customer. This flaw ensures that if there were an error or a fault with the initial login process or any function that occurred before the logActivity function was triggered, there would be no record of what had been the cause or source of the issue. Thankfully, altering this artifact was relatively painless as it only required that I partake in deeper criticism of my work and to closely examine its inner workings. 
+In addition to some of the misplaced functions in the userflow diagram, there were some function definitions that didn’t fit into the logical flow of the application. There were two login functions drawn out, one for the administrative users and another for the standard customer class. Given that both of these classes inherited from the case class Person, it would be more reasonable to move the determination of group to the login function and away from the person class or one of its subclasses. Changing the ordering of these functions and removing unnecessary functions cleans the diagram and the code that it will eventually produce.</p>
+
+
+
+  <small>tags: <em></em></small>
+
+    </div>
+</body>
+</html>

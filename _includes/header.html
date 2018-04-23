@@ -1,0 +1,23 @@
+<header class="site-header">
+    <nav class="navbar--fixed-top">
+        <div class="navbar__logo--left">
+            <span class="logo">Tyler</span>
+        </div>
+        <div class="navbar__link-list--right">
+            <ul class="link-list">
+                {% assign pages = site.pages | sort:"weight" %}
+                {% for p in pages %}
+                {% unless p.exclude_from_navigation %}
+                    {% assign class = "link-list__link" %}
+                    {% if p.title %}
+                    {% if p.url == page.url %}
+                        {% assign class = "link-list__link--is-active" %}
+                    {% endif %}
+                    <li class="{{ class }}"><a href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a></li>
+                    {% endif %}
+                {% endunless %}
+                {% endfor %}
+            </ul>
+        </div>
+    </nav>
+</header>

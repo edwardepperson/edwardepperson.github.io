@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<div class="blog-post-list posts">
+{% for post in site.posts limit: 3 %}
+    <div class="blog-post blog-post-frame post">
+        <header class="post-header">
+        <h2>
+            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+        <p class="post-meta">by {% if post.author %} {{ post.author }}{% endif %} - {{ post.date | date: "%b %-d, %Y" }}{% if post.meta %} • {{ post.meta }}{% endif %}</p>
+        </header>
+
+        <article class="post-content">
+        {% assign preview = post.content | split: " " %}
+        {% for character in (0..150) %}
+          {{ preview[character] }}
+        {% endfor %}...
+        </article>
+    </div>
+{% endfor %}
+</div>
